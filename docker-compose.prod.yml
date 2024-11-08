@@ -1,0 +1,10 @@
+version: "3"
+services:
+  node-app:
+    build:
+      context: .
+      args:
+        - node_env=prod
+    environment:
+      - node_env=prod
+    command: npm start
