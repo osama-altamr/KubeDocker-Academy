@@ -3,8 +3,7 @@ services:
   node-app:
     build:
       context: .
-      args:
-        - node_env=prod
+      target: prod
     environment:
       - node_env=prod
     command: npm start
