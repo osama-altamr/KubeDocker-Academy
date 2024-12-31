@@ -17,7 +17,7 @@ const redisClient = redis.createClient({
   .on('error', err => console.log('Redis Client Error', err))
   .on('connect', ()=> console.log('connected to redis...'))
  
-redisClient.connect()
+// redisClient.connect()
 
 // host => service name
 const DB_HOST = 'mongo'
@@ -31,7 +31,7 @@ mongoose.connect(URI).
   .catch((err) => console.log('failed to connect db: ',err))
 
 app.get('/', async(req, res) => {
-  redisClient.set('data', 'Data...')
+  // redisClient.set('data', 'Data...')
   res.send('<h1> Hello World Now!</h1>')
 })
 
