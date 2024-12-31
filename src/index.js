@@ -17,8 +17,7 @@ const redisClient = redis.createClient({
   .on('connect', ()=> console.log('connected to redis...'))
  
 // redisClient.connect()
-
-// host => service name
+  // host => service name
 
 const DB_HOST = 'postgres'
 const DB_PORT = 5432
@@ -34,7 +33,6 @@ client.connect().
   then(() => console.log('connected to postgres db...'))
   .catch((err) => console.log('failed to connect postgres db: ',err))
 
-
 // const DB_HOST = 'mongo'
 // const DB_PORT = 27017
 // const DB_USER = 'root'
@@ -47,12 +45,12 @@ client.connect().
 app.get('/', async(req, res) => {
   // redisClient.set('data', 'Data...')
   console.log(`traffic from ${os.hostname}`)
-  res.send('<h1> Hello World Now!</h1>')
+  res.send('<h1> Hello World using Docker Swarm</h1>')
 })
 
 
 app.get('/data', async(req, res) => {
   const data = await redisClient.get('data')
-  res.send(`<h1> Hello World Now!</h1> <h2>${data}</h2>`)
+  res.send(`<h1> Hello World Now! </h1>  <h2> Redis Data: ${data}</h2>`)
 })
 app.listen(port, ()=> console.log(`App is up and running on port ${port}`))
